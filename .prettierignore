@@ -1,0 +1,11 @@
+# Ignore build directory
+build
+
+# Ignore dependencies
+node_modules
+
+# Ignore husky git hooks
+.husky
+
+# Ignore IDE
+.idea
