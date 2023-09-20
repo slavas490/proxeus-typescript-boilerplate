@@ -1,7 +1,9 @@
 {
-  "watch": ["src/", ".env"],
+  "watch": ["src", ".env"],
+  "ext": "ts,json",
+  "ignore": ["src/**/*.spec.ts"],
   "env": {
     "NODE_ENV": "development"
   },
-  "exec": "NODE_PATH=. node --loader ts-node/esm src/index.ts"
+  "exec": "NODE_PATH=. npx ts-node src/index.ts"
 }
