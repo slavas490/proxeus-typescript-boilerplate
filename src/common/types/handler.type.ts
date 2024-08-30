@@ -11,5 +11,6 @@ export type HandlerReply = FastifyReply;
 export type OnNextHandlerRequest = FastifyRequest<{
   Body: {
     my_custom_field?: string;
+    openai_request?: string;
   };
 }>;

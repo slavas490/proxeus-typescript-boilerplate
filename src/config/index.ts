@@ -28,4 +28,5 @@ export default {
     process.env.PROXEUS_NODE_DESCRIPTION || 'Makes something valuable',
   PROXEUS_NODE_JWT_SECRET:
     process.env.PROXEUS_NODE_JWT_SECRET || 'my-node-jwt-secret',
+  OPENAI_API_KEY: process.env.OPENAI_API_KEY,
 };

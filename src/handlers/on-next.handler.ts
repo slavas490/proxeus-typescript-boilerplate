@@ -4,6 +4,7 @@ import {
 } from 'src/common/types/handler.type';
 import { IOnNextHandlerResponse } from 'src/common/interfaces/handler.interface';
 import { ProxeusOnOperationResponse } from 'src/libs/proxeus-node/types/response.type';
+import { OpenAIClient } from 'src/libs/openai';
 
 /**
  * On next handler function
@@ -23,6 +24,17 @@ export async function OnNextHandler(
 
   if (typeof body?.my_custom_field === 'string') {
     output.my_custom_field = body.my_custom_field.toUpperCase();
+  }
+
+  if (typeof body?.openai_request === 'string') {
+    const client = new OpenAIClient();
+    const completion = await client.completion(body.openai_request);
+
+    const content = completion?.choices?.[0]?.message?.content ?? null;
+
+    if (content) {
+      output.openai_response = content;
+    }
   }
 
   return output;
